@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47a47ec4f2284cdf9b641fce0aa54568" Name="Diagram1">
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Author" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Authors_Books" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Book" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Category" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Customer" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Language" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Promotion" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Role" Width="1.5" PointX="5.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Supplier" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.sysdiagram" Width="1.5" PointX="5.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.User" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_Authors_Books_Authors" ManuallyRouted="false" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_Authors_Books_Books" ManuallyRouted="false" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_Books_Categorys" ManuallyRouted="false" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_Books_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_Books_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_Users_Roles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Theme" Width="1.5" PointX="0.75" PointY="9.875" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_Categorys_Themes" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.Bill" Width="1.5" PointX="3" PointY="11.375" />
+        <EntityTypeShape EntityType="BOOKSTORE_DATABASEModel.DetailBill" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_DetailBills_Bills" />
+        <AssociationConnector Association="BOOKSTORE_DATABASEModel.FK_DetailBills_Books" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

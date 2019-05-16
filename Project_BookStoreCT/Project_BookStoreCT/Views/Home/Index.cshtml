@@ -1,0 +1,510 @@
+﻿@using Project_BookStoreCT.Models.DataModels;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="slider-area mt-30">
+    <div class="container">
+        <div class="slider-active owl-carousel">
+            <div class="single-slider pt-100 pb-145 bg-img" style="background-image: url('../../img/slider/13.jpg');">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="slider-content-3 slider-animated-1 pl-100">
+                            <h1>A Game <br>Fuck up</h1>
+                            <p class="slider-sale">
+                                <span class="sale1">-20%</span>
+                                <span class="sale2">
+                                    <strong>£80.00</strong>
+                                    £60.00
+                                </span>
+                            </p>
+                            <a href="#">Shop now!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slider pt-100 pb-145 bg-img" style="background-image: url('../../img/slider/12.jpg');">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="slider-content-3 slider-animated-1 pl-100">
+                            <h1>Wake The <br>of Thrones</h1>
+                            <p class="slider-sale">
+                                <span class="sale1">-20%</span>
+                                <span class="sale2">
+                                    <strong>£80.00</strong>
+                                    £60.00
+                                </span>
+                            </p>
+                            <a href="#">Shop now!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--product -->
+<div class="product-area pt-90 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center mb-30">
+                    <h2>SẢN PHẨM</h2>
+                    <p>Hãy xem những sản phẩm bán chạy nhất của chúng tôi<br /> Chắc chắn bạn sẽ tìm thấy những gì bạn muốn</p>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <!-- tab-menu-start -->
+                <div class="tab-menu mb-40 text-center">
+                    <ul>
+                        <li class="active"><a href="#Audiobooks" data-toggle="tab">Sản phẩm</a></li>
+                        <li><a href="#books" data-toggle="tab">Khuyến mãi</a></li>
+                        <li><a href="#bussiness" data-toggle="tab">Sản phẩm nối bật</a></li>
+                    </ul>
+                </div>
+                <!-- tab-menu-end -->
+            </div>
+        </div>
+
+        <!-- tab-area-start -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="Audiobooks">
+                <div class="tab-active owl-carousel">
+                    @*@{List<Book> e = ViewBag.GetAllBooks as List<Book>;
+                        int n = e.Count;
+                        int index = 0;}*@
+                    @foreach (Book b in ViewBag.GetAllBooks)
+                    {
+                        <div class="tab-total">
+                            <!-- single-product-start -->
+                            @if (b.statusSaleOff == true)
+                            {
+                                <div class="product-wrapper mb-40">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img src="~/imgs/@b.image" alt="book" class="primary" />
+                                        </a>
+                                        @*<div class="quick-view">
+                                            <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>*@
+                                        <div class="product-flag">
+                                            <ul>
+                                                <li><span class="discount-percentage">Sale off</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-details text-center">
+                                        <div class="product-rating">
+                                            <ul>
+                                                @for (int i = 0; i < b.star; i++)
+                                                {
+                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <h4><a href="#">@b.bookName</a></h4>
+                                        <div class="product-price">
+                                            <ul>
+                                                <li>@b.saleOffPrice$</li>
+                                                <li class="old-price">@b.price$</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-link">
+                                        <div class="product-button">
+                                            <a onclick="AddToCart(@b.Book_ID)" title="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                        </div>
+                                        <div class="add-to-link">
+                                            <ul>
+                                                <li><a href="~/Home/BookDetail?bid=@b.Book_ID" title="Xem chi tiết"><i class="fa fa-external-link"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="product-wrapper mb-40">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img src="~/imgs/@b.image" alt="book" class="primary" />
+                                        </a>
+                                        @*<div class="quick-view">
+                                            <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>*@
+                                        <div class="product-flag">
+                                            <ul>
+                                                @*<li><span class="discount-percentage">Sale off</span></li>*@
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-details text-center">
+                                        <div class="product-rating">
+                                            <ul>
+                                                @for (int i = 0; i < b.star; i++)
+                                                {
+                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <h4><a href="#">@b.bookName</a></h4>
+                                        <div class="product-price">
+                                            <ul>
+                                                <li>@b.price$</li>
+                                                @*<li class="old-price">@b.price$</li>*@
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-link">
+                                        <div class="product-button">
+                                            <a onclick="AddToCart(@b.Book_ID)" title="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                        </div>
+                                        <div class="add-to-link">
+                                            <ul>
+                                                <li><a href="~/Home/BookDetail?bid=@b.Book_ID" title="Xem chi tiết"><i class="fa fa-external-link"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <!-- single-product-end -->
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="tab-pane fade" id="books">
+                <div class="tab-active owl-carousel">
+                    @foreach (Book b in ViewBag.GetAllBooksSaleOff)
+                    {
+                        <div class="tab-total">
+
+                            <div class="product-wrapper mb-40">
+                                <div class="product-img">
+                                    <a href="#">
+                                        <img src="~/imgs/@b.image" alt="book" class="primary" />
+                                    </a>
+                                    @*<div class="quick-view">
+                                        <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+                                    </div>*@
+                                    <div class="product-flag">
+                                        <ul>
+                                            <li><span class="discount-percentage">Sale Off</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-details text-center">
+                                    <div class="product-rating">
+                                        <ul>
+                                            @for (int i = 0; i < b.star; i++)
+                                            {
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                    <h4><a href="#">@b.bookName</a></h4>
+                                    <div class="product-price">
+                                        <ul>
+                                            <li>@b.saleOffPrice$</li>
+                                            <li class="old-price">@b.price$</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-link">
+                                    <div class="product-button">
+                                        <a onclick="AddToCart(@b.Book_ID)" title="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                    </div>
+                                    <div class="add-to-link">
+                                        <ul>
+                                            <li><a href="~/Home/BookDetail?bid=@b.Book_ID" title="Details"><i class="fa fa-external-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="tab-pane fade" id="bussiness">
+                <div class="tab-active owl-carousel">
+                    @foreach (Book b in ViewBag.GetAllBooksHighlights)
+                    {
+                        if (b.statusSaleOff == true)
+                        {
+                            <div class="tab-total">
+                                <!-- single-product-start -->
+                                <div class="product-wrapper mb-40">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img src="~/imgs/@b.image" alt="book" class="primary" />
+                                        </a>
+                                        @*<div class="quick-view">
+                                            <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>*@
+                                        <div class="product-flag">
+                                            <ul>
+                                                <li><span class="discount-percentage">Sale Off</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-details text-center">
+                                        <div class="product-rating">
+                                            <ul>
+                                                @for (int i = 0; i < b.star; i++)
+                                                {
+                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <h4><a href="#">@b.bookName</a></h4>
+                                        <div class="product-price">
+                                            <ul>
+                                                <li>@b.saleOffPrice$</li>
+                                                <li class="old-price">@b.price$</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-link">
+                                        <div class="product-button">
+                                            <a onclick="AddToCart(@b.Book_ID)" title="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                        </div>
+                                        <div class="add-to-link">
+                                            <ul>
+                                                <li><a href="~/Home/BookDetail?bid=@b.Book_ID" title="Details"><i class="fa fa-external-link"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="tab-total">
+                                <!-- single-product-start -->
+                                <div class="product-wrapper mb-40">
+                                    <div class="product-img">
+                                        <a href="#">
+                                            <img src="~/imgs/@b.image" alt="book" class="primary" />
+                                        </a>
+                                        @*<div class="quick-view">
+                                            <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>*@
+                                        <div class="product-flag">
+                                            <ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-details text-center">
+                                        <div class="product-rating">
+                                            <ul>
+                                                @for (int i = 0; i < b.star; i++)
+                                                {
+                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <h4><a href="#">@b.bookName</a></h4>
+                                        <div class="product-price">
+                                            <ul>
+                                                <li>@b.price$</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-link">
+                                        <div class="product-button">
+                                            <a onclick="AddToCart(@b.Book_ID)" title="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                        </div>
+                                        <div class="add-to-link">
+                                            <ul>
+                                                <li><a href="~/Home/BookDetail?bid=@b.Book_ID" title="Details"><i class="fa fa-external-link"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- tab-area-end -->
+    </div>
+</div>
+<!-- most-product-area-start -->
+<!-- most-product-area-end -->
+<!-- recent-post-area-start -->
+<div class="recent-post-area pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title section-title-res pt-100 bt-3 text-center mb-30">
+                    <h2>Tin tức mới nhất</h2>
+                </div>
+            </div>
+            <div class="post-active owl-carousel text-center">
+                <div class="col-lg-12">
+                    <div class="single-post">
+                        <div class="post-img">
+                            <a href="#"><img src="~/img/post/1.jpg" alt="post" /></a>
+                            <div class="blog-date-time">
+                                <span class="day-time">06</span>
+                                <span class="moth-time">Dec</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="#">The History and the Hype</a></h3>
+                            <span class="meta-author"> Demo Posthemes </span>
+                            <p>Discover five of our favourite dresses from our new collection that are destined to be worn and loved immediately.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="single-post">
+                        <div class="post-img">
+                            <a href="#"><img src="~/img/post/2.jpg" alt="post" /></a>
+                            <div class="blog-date-time">
+                                <span class="day-time">06</span>
+                                <span class="moth-time">Dec</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="#">Answers to your Questions</a></h3>
+                            <span class="meta-author"> Demo Posthemes </span>
+                            <p>Discover five of our favourite dresses from our new collection that are destined to be worn and loved immediately.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="single-post">
+                        <div class="post-img">
+                            <a href="#"><img src="~/img/post/3.jpg" alt="post" /></a>
+                            <div class="blog-date-time">
+                                <span class="day-time">06</span>
+                                <span class="moth-time">Dec</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="#">What is Bootstrap?</a></h3>
+                            <span class="meta-author"> Demo Posthemes </span>
+                            <p>Discover five of our favourite dresses from our new collection that are destined to be worn and loved immediately.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="single-post">
+                        <div class="post-img">
+                            <a href="#"><img src="~/img/post/4.jpg" alt="post" /></a>
+                            <div class="blog-date-time">
+                                <span class="day-time">06</span>
+                                <span class="moth-time">Dec</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h3><a href="#">Etiam eros massa</a></h3>
+                            <span class="meta-author"> Demo Posthemes </span>
+                            <p>Discover five of our favourite dresses from our new collection that are destined to be worn and loved immediately.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- recent-post-area-end -->
+<!-- Modal -->
+@*<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5 col-sm-5 col-xs-12">
+                        <div class="modal-tab">
+                            <div class="product-details-large tab-content">
+                                <div class="tab-pane active" id="image-1">
+                                    <img src="~/img/product/quickview-l4.jpg" alt="" />
+                                </div>
+                                <div class="tab-pane" id="image-2">
+                                    <img src="~/img/product/quickview-l2.jpg" alt="" />
+                                </div>
+                                <div class="tab-pane" id="image-3">
+                                    <img src="~/img/product/quickview-l3.jpg" alt="" />
+                                </div>
+                                <div class="tab-pane" id="image-4">
+                                    <img src="~/img/product/quickview-l5.jpg" alt="" />
+                                </div>
+                            </div>
+                            <div class="product-details-small quickview-active owl-carousel">
+                                <a class="active" href="#image-1"><img src="~/img/product/quickview-s4.jpg" alt="" /></a>
+                                <a href="#image-2"><img src="~/img/product/quickview-s2.jpg" alt="" /></a>
+                                <a href="#image-3"><img src="~/img/product/quickview-s3.jpg" alt="" /></a>
+                                <a href="#image-4"><img src="~/img/product/quickview-s5.jpg" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-7 col-xs-12">
+                        <div class="modal-pro-content">
+                            <h3>Chaz Kangeroo Hoodie3</h3>
+                            <div class="price">
+                                <span>$70.00</span>
+                            </div>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.</p>
+                            <div class="quick-view-select">
+                                <div class="select-option-part">
+                                    <label>Size*</label>
+                                    <select class="select">
+                                        <option value="">S</option>
+                                        <option value="">M</option>
+                                        <option value="">L</option>
+                                    </select>
+                                </div>
+                                <div class="quickview-color-wrap">
+                                    <label>Color*</label>
+                                    <div class="quickview-color">
+                                        <ul>
+                                            <li class="blue">b</li>
+                                            <li class="red">r</li>
+                                            <li class="pink">p</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="#">
+                                <input type="number" value="1" />
+                                <button>Thêm vào giỏ</button>
+                            </form>
+                            <span><i class="fa fa-check"></i> In stock</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+<!-- Modal end -->
+<script>
+    function AddToCart(bid) {
+        alert("Thêm vào giỏ hàng thành công")
+        $.ajax({
+            url: '/Home/Cart',
+            type: 'POST',
+            cache: true,
+            data:
+                { 'bid': bid }
+        }).done(function (data) {
+            $("#cart").html(data);
+        })
+    }
+</script>
